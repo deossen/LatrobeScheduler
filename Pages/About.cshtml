@@ -1,0 +1,31 @@
+﻿@page
+@model LaTrobeScheduler.Pages.AboutModel
+
+@{
+    ViewData["Title"] = "Subject Instance Statistics";
+}
+
+<h2>Subject Instance Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Start Date
+        </th>
+        <th>
+            Subject Instances
+        </th>
+    </tr>
+
+    @foreach (var item in Model.SubjectInstances)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @item.SubjectCount
+            </td>
+        </tr>
+    }
+</table>

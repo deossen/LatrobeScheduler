@@ -1,7 +1,7 @@
 ﻿using LaTrobeScheduler.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace LaTrobeUniversity.Models
+namespace LaTrobeScheduler.Models
 {
 
     public class SubjectInstance

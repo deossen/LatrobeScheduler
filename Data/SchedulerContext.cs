@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using LaTrobeScheduler.Models;
-using LaTrobeUniversity.Models;
+// using LaTrobeUniversity.Models;
 
 namespace LaTrobeScheduler.Data
 {
@@ -21,9 +21,14 @@ namespace LaTrobeScheduler.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Subject>().ToTable("Subject");
-            modelBuilder.Entity<SubjectInstance>().ToTable("SubjectInstance");
-            modelBuilder.Entity<Lecturer>().ToTable("Lecturer");
+            modelBuilder.Entity<Subject>().ToTable(nameof(Subject))
+            //    .HasMany(s => s.SubjectInstances)
+              //  .WithMany(s => s.Subjects)
+                ;
+            modelBuilder.Entity<SubjectInstance>().ToTable(nameof(SubjectInstance));
+            modelBuilder.Entity<Lecturer>().ToTable(nameof(Lecturer))
+                //.HasMany(s => s.SubjectInstances)
+                ;
         }
 
         // public DbSet<LaTrobeScheduler.Models.Lecturer> Lecturer { get; set; } = default!;
