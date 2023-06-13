@@ -35,6 +35,7 @@ namespace LaTrobeScheduler.Pages.Lecturers
             CurrentSort = sortOrder;
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            
             if (searchString != null)
             {
                 pageIndex = 1;
@@ -54,6 +55,7 @@ namespace LaTrobeScheduler.Pages.Lecturers
             if (!String.IsNullOrEmpty(searchString))
             {
                 lecturersIQ = lecturersIQ.Where(l => l.LastName.Contains(searchString)
+                                       || l.KnownSubjects.Contains(searchString)
                                        || l.FirstMidName.Contains(searchString));
             }
 

@@ -11,6 +11,9 @@ namespace LaTrobeScheduler.Models
         public int LecturerID { get; set; }
         [DisplayFormat(NullDisplayText = "No Students")]
         public int StudentNumbers { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Month")]
         public DateTime StartDate { get; set; }
         
         public Lecturer Lecturer { get; set; }

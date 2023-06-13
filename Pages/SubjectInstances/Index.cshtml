@@ -2,34 +2,49 @@
 @model LaTrobeScheduler.Pages.SubjectInstances.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Subject Instances";
 }
 
-<h1>Index</h1>
+<h1>Subject Instances</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name or subject code:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SubjectInstance[0].StudentNumbers)
+                @Html.DisplayNameFor(model => model.SubjectInstances[0].StudentNumbers)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SubjectInstance[0].StartDate)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.SubjectInstances[0].StartDate)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SubjectInstance[0].Lecturer)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.LecturerSort">
+                    @Html.DisplayNameFor(model => model.SubjectInstances[0].Lecturer)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SubjectInstance[0].Subject)
+                @Html.DisplayNameFor(model => model.SubjectInstances[0].Subject)
+
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.SubjectInstance) {
+@foreach (var item in Model.SubjectInstances) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.StudentNumbers)

@@ -23,8 +23,8 @@ namespace LaTrobeScheduler.Models
         [Required]
         //[StringLength(50, ErrorMessage = "First name cannot be longer than 50 characters.")]
         [Column("WorkLoad")]
-        [Range(0, 10)]
-        [Display(Name = "Work Load 0 -10")]
+        [Range(0, 38)]
+        [Display(Name = "Weekly Hours 0 - 38")]
         public int WorkLoad { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "known subjects cannot be longer than 50 characters.")]
